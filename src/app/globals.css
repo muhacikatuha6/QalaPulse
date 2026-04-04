@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #020617;
+  --color-bg2: #0f172a;
+  --color-bg3: #1e293b;
+  --color-bg4: #334155;
+  
+  --color-border: rgba(148, 163, 184, 0.1);
+  --color-border2: rgba(148, 163, 184, 0.2);
+  
+  --color-text: #f8fafc;
+  --color-text2: #94a3b8;
+  --color-text3: #64748b;
+  
+  --color-accent: #38bdf8;
+  --color-accent2: #0ea5e9;
+  
+  --color-amber: #fbbf24;
+  --color-red: #f43f5e;
+  --color-blue: #6366f1;
+  --color-purple: #a855f7;
+  --color-pink: #ec4899;
+  
+  --radius-r: 12px;
+  --radius-r2: 20px;
+}
+
+:root {
+  --bg: #020617;
+  --bg2: #0f172a;
+  --bg3: #1e293b;
+  --bg4: #334155;
+  --border: rgba(148, 163, 184, 0.1);
+  --border2: rgba(148, 163, 184, 0.2);
+  --text: #f8fafc;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --accent: #38bdf8;
+  --accent2: #0ea5e9;
+  --accentdim: rgba(56, 189, 248, 0.1);
+  --accentdim2: rgba(56, 189, 248, 0.05);
+  --amber: #fbbf24;
+  --red: #f43f5e;
+  --blue: #6366f1;
+  --purple: #a855f7;
+  --pink: #ec4899;
+  --r: 12px;
+  --r2: 20px;
+  --glass: rgba(15, 23, 42, 0.7);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-onest), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { 
+  background: var(--bg3); 
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+@utility glass-panel {
+  backdrop-filter: blur(16px);
+  background-color: var(--glass);
+  border: 1px solid var(--border);
+}
+
+@utility card-hover {
+  transition: all 0.3s;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(56, 189, 248, 0.1);
+    border-color: var(--accent2);
+  }
+}
+
+.pulse { animation: pulse 2s infinite; }
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+.fadein { animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Leaflet Map Styling */
+.leaflet-container {
+  background: var(--bg) !important;
+}
+
+.dark-popup .leaflet-popup-content-wrapper {
+  background: var(--bg2) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--r) !important;
+  backdrop-filter: blur(10px);
+}
+
+.dark-popup .leaflet-popup-tip {
+  background: var(--bg2) !important;
+}
+
+/* Oracle Map Styles */
+.oracle-tooltip {
+  background: rgba(15, 15, 25, 0.9) !important;
+  border: 1px solid var(--purple) !important;
+  border-radius: 12px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.5) !important;
+  color: white !important;
+  font-family: 'Unbounded', sans-serif !important;
+  font-size: 11px !important;
+  pointer-events: none !important;
+}
+
+.oracle-tooltip::before {
+  border-top-color: var(--purple) !important;
+}
+
+.leaflet-tooltip-top:before, 
+.leaflet-tooltip-bottom:before, 
+.leaflet-tooltip-left:before, 
+.leaflet-tooltip-right:before {
+  border: none !important;
+}
+
+.leaflet-tooltip {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
